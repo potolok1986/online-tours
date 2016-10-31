@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+body,
+html {
+  height: 100%;
+  background-color: #4c595e;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+.content {
+  max-width: 1280px;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+.form-inline {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+.form-header {
+  margin-top: 50px;
+}
+.form-header > * {
+  width: calc(100% / 6);
+}
+.form-header fieldset {
+  min-height: 60px;
+}
+.form-header fieldset legend {
+  color: white;
+}
