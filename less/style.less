@@ -5,6 +5,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	border: none;
+	outline: none;
 }
 
 body {
@@ -19,11 +20,11 @@ body {
 	padding: 0 5px;
 	margin: 0 auto;
 }
-
+/* form style*/
 .form-inline {
 	width: 100%;
 	display: flex;
-	//flex-wrap: wrap;
+	flex-wrap: wrap;
 
 }
 
@@ -55,9 +56,9 @@ body {
 		top: -20px;
 		position: absolute;
 		line-height: 1;
-		//left: -1px;
+
 	}
-	.title {
+	.title,.select2-selection__rendered {
 		color: #059bce;
 		font-weight: 600;
 		padding-left: 10px;
@@ -85,7 +86,6 @@ body {
 .btn-yellow {
 	color: white;
 	background-color: #ec933d;
-	outline: none;
 	transition: background-color .3s linear;
 	&:hover {
 		background-color: #fd9e45;
@@ -94,7 +94,8 @@ body {
 		background-color: #e27c1a;
 	}
 }
-
+/* finish form style*/
+/* icons style*/
 .icon {
 	background: transparent url("../icons/icons-sprite.png");
 	width: 17px;
@@ -130,7 +131,9 @@ body {
 	width: 19px;
 	height: 19px;
 }
+/* finish icons style*/
 
+/* media style*/
 .visible-sm {
 	display: none;
 }
@@ -152,3 +155,6 @@ body {
 		display: inline-block;
 	}
 }
+/* finish media style*/
+@import "./libs/perfect-scrollbar.css";
+@import "./libs/select2.css";

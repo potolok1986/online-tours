@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import "libs/perfect-scrollbar.css";
+@import "libs/select2.css";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border: none;
+  outline: none;
 }
 body {
   height: 100%;
@@ -16,11 +19,11 @@ body {
   padding: 0 5px;
   margin: 0 auto;
 }
+/* form style*/
 .form-inline {
   width: 100%;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
 }
 .form-header {
   margin-top: 50px;
@@ -37,12 +40,8 @@ body {
 }
 .form-header .form-content {
   min-height: 60px;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background-color: white;
 }
 .form-header .form-content .icon {
@@ -54,7 +53,8 @@ body {
   position: absolute;
   line-height: 1;
 }
-.form-header .title {
+.form-header .title,
+.form-header .select2-selection__rendered {
   color: #059bce;
   font-weight: 600;
   padding-left: 10px;
@@ -79,7 +79,6 @@ body {
 .btn-yellow {
   color: white;
   background-color: #ec933d;
-  outline: none;
   transition: background-color 0.3s linear;
 }
 .btn-yellow:hover {
@@ -88,6 +87,8 @@ body {
 .btn-yellow:active {
   background-color: #e27c1a;
 }
+/* finish form style*/
+/* icons style*/
 .icon {
   background: transparent url("../icons/icons-sprite.png");
   width: 17px;
@@ -117,6 +118,8 @@ body {
   width: 19px;
   height: 19px;
 }
+/* finish icons style*/
+/* media style*/
 .visible-sm {
   display: none;
 }
@@ -134,3 +137,4 @@ body {
     display: inline-block;
   }
 }
+/* finish media style*/
