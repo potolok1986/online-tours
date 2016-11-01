@@ -1,38 +1,154 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-*{
+
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	border: none;
 }
-body,html{
+
+body {
 	height: 100%;
 	background-color: #4c595e;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 }
-.content{
+
+.content {
 	max-width: 1280px;
 	padding: 0 5px;
 	margin: 0 auto;
 }
 
-.form-inline{
+.form-inline {
 	width: 100%;
 	display: flex;
-	flex-wrap: wrap;
+	//flex-wrap: wrap;
+
 }
 
-.form-header{
+.form-header {
 	margin-top: 50px;
 	& > * {
 		width: calc(~"100% / 6");
-	}
-	fieldset{
-		min-height: 60px;
-
-		legend{
-			color: white;
+		position: relative;
+		&:first-of-type {
+			.form-content {
+				border-radius: 4px 0 0 4px;
+			}
 		}
+		&:last-of-type {
+			border-radius: 0 4px 4px 0;
+		}
+	}
+	.form-content {
+		min-height: 60px;
+		display: flex;
+		align-items: center;
+		background-color: white;
+		.icon {
+			margin-left: 15px;
+		}
+	}
+	legend {
+		color: white;
+		top: -20px;
+		position: absolute;
+		line-height: 1;
+		//left: -1px;
+	}
+	.title {
+		color: #059bce;
+		font-weight: 600;
+		padding-left: 10px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.description {
+		color: #666;
+		font-size: 12px;
+		padding-left: 10px;
+	}
+	fieldset + fieldset {
+		border-left: 1px solid #e8edf0;
+	}
+}
+
+.btn {
+	font: bold 16px/16px 'Open Sans';
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.btn-yellow {
+	color: white;
+	background-color: #ec933d;
+	outline: none;
+	transition: background-color .3s linear;
+	&:hover {
+		background-color: #fd9e45;
+	}
+	&:active {
+		background-color: #e27c1a;
+	}
+}
+
+.icon {
+	background: transparent url("../icons/icons-sprite.png");
+	width: 17px;
+	height: 17px;
+	position: relative;
+	display: inline-block;
+}
+
+.icon-flight {
+	background-position: 0 0;
+}
+
+.icon-point {
+	height: 18px;
+	background-position: 0px -17px;
+}
+
+.icon-bridge {
+	height: 21px;
+	background-position: 0 -36px;
+}
+
+.icon-calendar {
+	background-position: 0 -57px;
+}
+
+.icon-face {
+	background-position: 0 0;
+}
+
+.icon-search {
+	background-position: 0 -93px;
+	width: 19px;
+	height: 19px;
+}
+
+.visible-sm {
+	display: none;
+}
+
+@media screen and (max-width: 980px) {
+	.content {
+		min-width: 640px;
+	}
+
+	.hidden-sm {
+		display: none;
+	}
+
+	.visible-sm-block {
+		display: block;
+	}
+
+	.visible-sm {
+		display: inline-block;
 	}
 }

@@ -5,8 +5,7 @@
   box-sizing: border-box;
   border: none;
 }
-body,
-html {
+body {
   height: 100%;
   background-color: #4c595e;
   font-family: 'Open Sans', sans-serif;
@@ -22,19 +21,116 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
 }
 .form-header {
   margin-top: 50px;
 }
 .form-header > * {
   width: calc(100% / 6);
+  position: relative;
 }
-.form-header fieldset {
+.form-header > *:first-of-type .form-content {
+  border-radius: 4px 0 0 4px;
+}
+.form-header > *:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+.form-header .form-content {
   min-height: 60px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
 }
-.form-header fieldset legend {
+.form-header .form-content .icon {
+  margin-left: 15px;
+}
+.form-header legend {
   color: white;
+  top: -20px;
+  position: absolute;
+  line-height: 1;
+}
+.form-header .title {
+  color: #059bce;
+  font-weight: 600;
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.form-header .description {
+  color: #666;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.form-header fieldset + fieldset {
+  border-left: 1px solid #e8edf0;
+}
+.btn {
+  font: bold 16px/16px 'Open Sans';
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn-yellow {
+  color: white;
+  background-color: #ec933d;
+  outline: none;
+  transition: background-color 0.3s linear;
+}
+.btn-yellow:hover {
+  background-color: #fd9e45;
+}
+.btn-yellow:active {
+  background-color: #e27c1a;
+}
+.icon {
+  background: transparent url("../icons/icons-sprite.png");
+  width: 17px;
+  height: 17px;
+  position: relative;
+  display: inline-block;
+}
+.icon-flight {
+  background-position: 0 0;
+}
+.icon-point {
+  height: 18px;
+  background-position: 0px -17px;
+}
+.icon-bridge {
+  height: 21px;
+  background-position: 0 -36px;
+}
+.icon-calendar {
+  background-position: 0 -57px;
+}
+.icon-face {
+  background-position: 0 0;
+}
+.icon-search {
+  background-position: 0 -93px;
+  width: 19px;
+  height: 19px;
+}
+.visible-sm {
+  display: none;
+}
+@media screen and (max-width: 980px) {
+  .content {
+    min-width: 640px;
+  }
+  .hidden-sm {
+    display: none;
+  }
+  .visible-sm-block {
+    display: block;
+  }
+  .visible-sm {
+    display: inline-block;
+  }
 }
