@@ -81,7 +81,7 @@ html {
 }
 .form-header .select2-selection__rendered:before {
   content: "";
-  background: transparent url("../icons/icons-sprite.png");
+  background: transparent url("icons/icons-sprite.png");
   width: 17px;
   height: 17px;
   display: inline-block;
@@ -144,7 +144,7 @@ html {
 /* finish form style*/
 /* icons style*/
 .icon {
-  background: transparent url("../icons/icons-sprite.png");
+  background: transparent url("icons/icons-sprite.png");
   width: 17px;
   height: 17px;
   position: relative;
