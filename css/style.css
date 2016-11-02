@@ -8,7 +8,8 @@
   border: none;
   outline: none;
 }
-body {
+body,
+html {
   height: 100%;
   background-color: #4c595e;
   font-family: 'Open Sans', sans-serif;
@@ -18,12 +19,17 @@ body {
   max-width: 1280px;
   padding: 0 5px;
   margin: 0 auto;
+  overflow: hidden;
 }
 /* form style*/
 .form-inline {
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 .form-header {
   margin-top: 50px;
@@ -31,21 +37,29 @@ body {
 .form-header > * {
   width: calc(100% / 6);
   position: relative;
-}
-.form-header > *:first-of-type .form-content {
-  border-radius: 4px 0 0 4px;
-}
-.form-header > *:last-of-type {
-  border-radius: 0 4px 4px 0;
+  min-width: 0;
 }
 .form-header .form-content {
   min-height: 60px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: white;
 }
 .form-header .form-content .icon {
   margin-left: 15px;
+}
+.form-header .form-content > div {
+  min-width: 0;
+}
+.form-header fieldset + fieldset {
+  border-left: 1px solid #e8edf0;
+}
+.form-header fieldset select {
+  display: none;
 }
 .form-header legend {
   color: white;
@@ -62,16 +76,56 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.form-header .select2-selection__rendered {
+  padding-left: 15px;
+}
+.form-header .select2-selection__rendered:before {
+  content: "";
+  background: transparent url("../icons/icons-sprite.png");
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  background-position: 0 0;
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
+}
 .form-header .description {
   color: #666;
   font-size: 12px;
   padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.form-header fieldset + fieldset {
-  border-left: 1px solid #e8edf0;
+.form-header .select2-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 60px;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  width: 100%;
+  border-radius: 4px 0 0 4px;
+}
+.form-header .select2-container > span {
+  min-width: 0;
+}
+.form-header .select2-container.select2-container--open {
+  border-bottom-left-radius: 0;
+  background-color: #e8edf0;
+}
+.form-header .select2-container .select2-selection__arrow {
+  display: none;
 }
 .btn {
   font: bold 16px/16px 'Open Sans';
+  border-radius: 0 4px 4px 0;
 }
 .btn:hover {
   cursor: pointer;
@@ -95,6 +149,9 @@ body {
   height: 17px;
   position: relative;
   display: inline-block;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
 }
 .icon-flight {
   background-position: 0 0;
@@ -126,6 +183,15 @@ body {
 @media screen and (max-width: 980px) {
   .content {
     min-width: 640px;
+  }
+  .form-header fieldset {
+    width: calc((100% - 60px) / 5);
+  }
+  .form-header > button {
+    width: 60px;
+  }
+  .form-header .select2-selection__rendered:before {
+    display: none;
   }
   .hidden-sm {
     display: none;
