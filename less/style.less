@@ -50,7 +50,6 @@ body, html {
 		}
 	}
 	fieldset {
-
 		& + fieldset {
 			border-left: 1px solid #e8edf0;
 		}
@@ -58,7 +57,10 @@ body, html {
 			display: none;
 		}
 	}
-
+	& > .btn{
+		font: bold 16px/16px 'Open Sans';
+		border-radius: 0 4px 4px 0;
+	}
 	legend {
 		color: white;
 		top: -20px;
@@ -117,8 +119,9 @@ body, html {
 }
 
 .btn {
-	font: bold 16px/16px 'Open Sans';
-	border-radius: 0 4px 4px 0;
+	color: white;
+	border-radius:4px;
+	padding: 5px;
 	&:hover {
 		cursor: pointer;
 	}
@@ -215,3 +218,38 @@ body, html {
 /* finish media style*/
 @import "./libs/perfect-scrollbar.css";
 @import "./libs/select2.css";
+
+/*Basket style*/
+.basket-container{
+	color: white;
+	max-width: 1280px;
+	margin: 150px auto 0 auto;
+	.basket{
+		display: flex;
+		& > div{
+			min-width: 0;
+			width: 50%;
+		}
+	}
+	h2{
+		text-align: center;
+		margin-bottom: 15px;
+	}
+}
+.country-list{
+
+	list-style: none;
+	li{
+		line-height: 20px;
+		span{
+			min-width: 250px;
+			display: inline-block;
+		}
+		button{
+			margin-left: 15px;
+		}
+		& + li{
+			margin-top: 5px;
+		}
+	}
+}
