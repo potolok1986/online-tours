@@ -5,8 +5,8 @@ var Basket = (function () {
 
 // Приватные свойства
 		$selector,
-		__sum,
-		__countryCounter,
+		$sum,
+		$tourCounter,
 		__toursInBasket = [];
 
 // Конструктор класса
@@ -15,14 +15,17 @@ var Basket = (function () {
 		$selector.empty().append(
 			"<p>В корзине <span class='js-basket-info-counter'></span> на сумму <span class='js-basket-info-sum'></span></p>"
 		);
-		this.sum = $selector.find(".js-basket-info-sum");
-		this.tourCounter = $selector.find(".js-basket-info-counter");
+		// эти свойства делаем публичными чтобы можно было из экземпляра поменять значеие на случай выгрузки данных из сессии
+		$sum = $selector.find(".js-basket-info-sum");
+		$tourCounter = $selector.find(".js-basket-info-counter");
+		//
 		this.update();
 	}
 
 // Публичные методы
 	Basket.prototype.update = function (tour) {
-		__sum = __countryCounter = 0;
+		var __sum = 0,
+			__countryCounter = 0;
 		if (tour) {
 			__toursInBasket.push(tour);
 		}
@@ -30,8 +33,8 @@ var Basket = (function () {
 			__sum += __toursInBasket[i].price;
 			__countryCounter++;
 		}
-		this.sum.text(__sum + " рубл".pluralize(__sum,"ь","я","ей") + ".");
-		this.tourCounter.text(__countryCounter + " товар".pluralize(__countryCounter,"","а","ов"));
+		$sum.text(__sum + " рубл".pluralize(__sum,"ь","я","ей") + ".");
+		$tourCounter.text(__countryCounter + " товар".pluralize(__countryCounter,"","а","ов"));
 	};
 
 	Basket.prototype.add = function (tour) {
@@ -53,6 +56,11 @@ var Basket = (function () {
 				break;
 			}
 		}
+	};
+	// метод возвращающий все что находится в корзине
+	// на пример при отправке на серер
+	Basket.prototype.getTourInBasket = function () {
+		return __toursInBasket;
 	};
 	return Basket
 }());
