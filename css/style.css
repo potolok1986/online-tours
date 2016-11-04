@@ -44,7 +44,6 @@ html {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  /*Center horizontaly ie */
   background-color: white;
 }
 .form-header .form-content .icon {
