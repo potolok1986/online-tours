@@ -4,18 +4,19 @@ var Basket = (function () {
 		i,// counters
 
 // Приватные свойства
+		$selector,
 		__sum,
 		__countryCounter,
 		__toursInBasket = [];
 
 // Конструктор класса
 	function Basket (selector) {
-		this.selector = $(selector);
-		this.selector.empty().append(
+		$selector = $(selector);
+		$selector.empty().append(
 			"<p>В корзине <span class='js-basket-info-counter'></span> на сумму <span class='js-basket-info-sum'></span></p>"
 		);
-		this.sum = this.selector.find(".js-basket-info-sum");
-		this.tourCounter = this.selector.find(".js-basket-info-counter");
+		this.sum = $selector.find(".js-basket-info-sum");
+		this.tourCounter = $selector.find(".js-basket-info-counter");
 		this.update();
 	}
 
@@ -29,7 +30,6 @@ var Basket = (function () {
 			__sum += __toursInBasket[i].price;
 			__countryCounter++;
 		}
-
 		this.sum.text(__sum + " рубл".pluralize(__sum,"ь","я","ей") + ".");
 		this.tourCounter.text(__countryCounter + " товар".pluralize(__countryCounter,"","а","ов"));
 	};
