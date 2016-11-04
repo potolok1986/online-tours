@@ -8,7 +8,7 @@ var
 	Basket = function (selector) {
 		this.selector = $(selector);
 		this.selector.empty().append(
-			"<p>В корзине <span class='js-basket-info-counter'></span> товаров на сумму <span class='js-basket-info-sum'></span> рублей.</p>"
+			"<p>В корзине <span class='js-basket-info-counter'></span> на сумму <span class='js-basket-info-sum'></span></p>"
 		);
 		this.sum = this.selector.find(".js-basket-info-sum");
 		this.tourCounter = this.selector.find(".js-basket-info-counter");
@@ -25,8 +25,8 @@ Basket.prototype.update = function (tour) {
 		__countryCounter++;
 	}
 
-	this.sum.text(__sum);
-	this.tourCounter.text(__countryCounter);
+	this.sum.text(__sum + " рубл".pluralize(__sum,"ь","я","ей") + ".");
+	this.tourCounter.text(__countryCounter + " товар".pluralize(__countryCounter,"","а","ов"));
 };
 Basket.prototype.add = function (tour) {
 	var ok = true; // флаг на поиск совпадений по странам

@@ -17,7 +17,7 @@
 						getTour.tour = list[i];
 						elements.push($("<li/>", {
 							html: [$("<span/>", {
-								text: "Тур в " + getTour.tour.country + " за " + getTour.tour.price + " рублей"
+								text: "Тур в " + getTour.tour.country + " за " + getTour.tour.price + " рубл".pluralize(getTour.tour.price,"ь","я","ей")
 							})
 								, $("<button/>", {
 									class: "btn btn-yellow",

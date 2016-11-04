@@ -4,7 +4,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
   border: none;
   outline: none;
 }
@@ -27,26 +27,24 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
 }
 .form-header {
   margin-top: 50px;
 }
 .form-header > * {
-  width: calc(100% / 6);
+  width: calc(100% / 6 - 1px);
   position: relative;
   min-width: 0;
 }
 .form-header .form-content {
-  min-height: 60px;
+  height: 60px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  /*Center horizontaly ie */
   background-color: white;
 }
 .form-header .form-content .icon {
@@ -54,6 +52,9 @@ html {
 }
 .form-header .form-content > div {
   min-width: 0;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .form-header fieldset + fieldset {
   border-left: 1px solid #e8edf0;
@@ -62,8 +63,10 @@ html {
   display: none;
 }
 .form-header > .btn {
-  font: bold 16px/16px 'Open Sans';
+  font-size: 16px;
+  font-weight: bold;
   border-radius: 0 4px 4px 0;
+  padding: 0;
 }
 .form-header legend {
   color: white;
@@ -79,6 +82,9 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.form-header .select2-container .select2-selection--single {
+  color: #059bce;
 }
 .form-header .select2-selection__rendered {
   padding-left: 15px;
@@ -109,7 +115,7 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 60px;
+  height: 60px;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -118,7 +124,7 @@ html {
   border-radius: 4px 0 0 4px;
 }
 .form-header .select2-container > span {
-  min-width: 0;
+  min-width: 1px;
 }
 .form-header .select2-container.select2-container--open {
   border-bottom-left-radius: 0;
@@ -219,14 +225,17 @@ html {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
 }
 .basket-container .basket > div {
-  min-width: 0;
+  margin-top: 15px;
+  min-width: 400px;
   width: 50%;
 }
 .basket-container h2 {
   text-align: center;
-  margin-bottom: 15px;
 }
 .country-list {
   list-style: none;

@@ -3,7 +3,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	box-sizing: content-box;
 	border: none;
 	outline: none;
 }
@@ -26,27 +26,28 @@ body, html {
 .form-inline {
 	width: 100%;
 	display: flex;
-	flex-wrap: wrap;
-
 }
 
 .form-header {
 	margin-top: 50px;
 	& > * {
-		width: calc(~"100% / 6");
+		width: calc(~"100% / 6 - 1px");
 		position: relative;
 		min-width: 0;
 	}
 	.form-content {
-		min-height: 60px;
+		height: 60px;
 		display: flex;
 		align-items: center;
+		/*Center horizontaly ie */
+
 		background-color: white;
 		.icon {
 			margin-left: 15px;
 		}
 		& > div {
 			min-width: 0;
+			flex:1;
 		}
 	}
 	fieldset {
@@ -58,8 +59,10 @@ body, html {
 		}
 	}
 	& > .btn{
-		font: bold 16px/16px 'Open Sans';
+		font-size: 16px;
+		font-weight: bold;
 		border-radius: 0 4px 4px 0;
+		padding: 0;
 	}
 	legend {
 		color: white;
@@ -75,6 +78,9 @@ body, html {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+	}
+	.select2-container .select2-selection--single{
+		color: #059bce;
 	}
 	.select2-selection__rendered {
 		padding-left: 15px;
@@ -99,13 +105,14 @@ body, html {
 
 	.select2-container {
 		display: flex;
-		min-height: 60px;
+		height: 60px;
 		align-items: center;
 		background-color: white;
 		width: 100%;
 		border-radius: 4px 0 0 4px;
 		& > span {
-			min-width: 0;
+			min-width: 1px;
+
 		}
 		&.select2-container--open {
 			border-bottom-left-radius: 0;
@@ -226,14 +233,15 @@ body, html {
 	margin: 150px auto 0 auto;
 	.basket{
 		display: flex;
+		flex-wrap: wrap;
 		& > div{
-			min-width: 0;
+			margin-top: 15px;
+			min-width: 400px;
 			width: 50%;
 		}
 	}
 	h2{
 		text-align: center;
-		margin-bottom: 15px;
 	}
 }
 .country-list{
