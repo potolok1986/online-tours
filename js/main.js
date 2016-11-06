@@ -1,16 +1,21 @@
 $(function () {
 	// Подключаем выпадающий список и скролл
+	var select2Init = false; // флаг инициализации select2
 	$("select").select2({
 		minimumResultsForSearch: -1,
 		width: 'auto'
 	})
 		.on("select2:opening", function () {
+			if(!select2Init){
+				return
+			}
 			// обновляем при повторном открытии выпадаюего списка
 			updateScrollBar(true)
 		})
-		.on("select2:open", function () {
-			// инициализируем
-			updateScrollBar()
+		.one("select2:open", function () {
+			// инициализируем выпадающий список один раз
+			updateScrollBar();
+			select2Init = true;
 		});
 	function updateScrollBar(update) {
 		// Вещаем таймаут, т.к. список может не успеть построится до конца, и скролл срау не появится
@@ -38,7 +43,7 @@ $(function () {
 	],
 		// создаем экземпляр класса
 		basket = new Basket(".js-basket-info");
-	// на каждыйсписок вешаем свой коллбек
+	// на каждый список вешаем свой коллбек и название кнопки
 	$(".js-country-list").countryList(countryList,"Добавить в корзину", function (tour) {
 		basket.add(tour)
 	});
@@ -46,10 +51,10 @@ $(function () {
 		basket.remove(tour)
 	});
 });
-// создаем метод для возможности дописания необходимый окончаний в строку, в зависимости от переданного числительного
+// создаем метод для возможности дописывания необходимых окончаний в строку, в зависимости от переданного числительного
 String.prototype.pluralize = function (count, s1, s2, s3) {
-	var value = parseInt(count),
-		resultStr = s3; // результирующая строка
+	var value = parseInt(count), // числительное
+		resultStr = s3; // итоговое окончание
 	if ([11, 12, 13, 14].indexOf(value % 100) != -1) {
 		resultStr = s3;
 	} else if (value % 10 == 1) {

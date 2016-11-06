@@ -15,7 +15,7 @@ var Basket = (function () {
 		$selector.empty().append(
 			"<p>В корзине <span class='js-basket-info-counter'></span> на сумму <span class='js-basket-info-sum'></span></p>"
 		);
-		// эти свойства делаем публичными чтобы можно было из экземпляра поменять значеие на случай выгрузки данных из сессии
+
 		$sum = $selector.find(".js-basket-info-sum");
 		$tourCounter = $selector.find(".js-basket-info-counter");
 		//
@@ -24,17 +24,17 @@ var Basket = (function () {
 
 // Публичные методы
 	Basket.prototype.update = function (tour) {
-		var __sum = 0,
-			__countryCounter = 0;
+		var sumSrt = 0,
+			countryCounter = 0;
 		if (tour) {
 			__toursInBasket.push(tour);
 		}
 		for (i in __toursInBasket) {
-			__sum += __toursInBasket[i].price;
-			__countryCounter++;
+			sumSrt += __toursInBasket[i].price;
+			countryCounter++;
 		}
-		$sum.text(__sum + " рубл".pluralize(__sum,"ь","я","ей") + ".");
-		$tourCounter.text(__countryCounter + " товар".pluralize(__countryCounter,"","а","ов"));
+		$sum.text(sumSrt + " рубл".pluralize(sumSrt,"ь","я","ей") + ".");
+		$tourCounter.text(countryCounter + " товар".pluralize(countryCounter,"","а","ов"));
 	};
 
 	Basket.prototype.add = function (tour) {
